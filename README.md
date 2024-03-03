@@ -18,23 +18,26 @@
 </div>
 <br/>
 
-# Build
+# Getting started
 
-1. Clone repo
+## Windows
 
-   `git clone https://github.com/StarPandaBeg/DayNNight.git`
+Download precompiled binaries on [releases](https://github.com/StarPandaBeg/DayNNight/releases/latest) page
 
-1. Create a directory for cmake , e.g.
+## Build
 
-   `mkdir build`
+### Requirements
 
-1. Run cmake to create config cache
+- CMake >= 3.16
 
-   `cmake -B build -DCMAKE_BUILD_TYPE=Release`
+To build the project please follow the instructions below:
 
-1. Run cmake build
-
-   `cmake --build build --config Release`
+```bash
+git clone https://github.com/StarPandaBeg/DayNNight.git
+cd DayNNight
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --config Release
+```
 
 # License
 
