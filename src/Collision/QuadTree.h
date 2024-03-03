@@ -190,7 +190,10 @@ namespace DayNNight {
             // Find the value in node->values
             auto it = std::find_if(std::begin(node->values), std::end(node->values),
                                    [this, &value](const auto& rhs) { return mEqual(value, rhs); });
-            assert(it != std::end(node->values) && "Trying to remove a value that is not present in the node");
+            // assert(it != std::end(node->values) && "Trying to remove a value that is not present in the node");
+            if (it == std::end(node->values)) {
+                return;
+            }
             // Swap with the last element and pop back
             *it = std::move(node->values.back());
             node->values.pop_back();
