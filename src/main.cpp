@@ -2,8 +2,7 @@
 
 #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 
-int main()
-{
+int main() {
     DayNNight::Application application;
     application.run();
     return 0;

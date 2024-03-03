@@ -1,25 +1,24 @@
 #include "Application.h"
 
 #include <iostream>
+
 #include "Collision/CollisionDetector.h"
-#include "Nodes/RectGridNode.h"
 #include "Nodes/BallNode.h"
+#include "Nodes/RectGridNode.h"
 
 using namespace DayNNight;
 
-Application::Application()
-{
+Application::Application() {
     auto settings = sf::ContextSettings();
     settings.antialiasingLevel = 8;
 
-	_window = std::make_unique<sf::RenderWindow>(sf::VideoMode(640, 640), "Day n' Night", sf::Style::Titlebar | sf::Style::Close, settings);
+    _window = std::make_unique<sf::RenderWindow>(sf::VideoMode(640, 640), "Day n' Night", sf::Style::Titlebar | sf::Style::Close, settings);
     _window->setVerticalSyncEnabled(true);
     setupScene();
 }
 
-void Application::run()
-{
-	while (_window->isOpen()) {
+void Application::run() {
+    while (_window->isOpen()) {
         pollEvents();
 
         _scene->update();
@@ -28,21 +27,19 @@ void Application::run()
         _window->clear();
         _scene->render(*_window.get());
         _window->display();
-	}
+    }
 }
 
 void Application::pollEvents() {
     sf::Event event;
 
-    while (_window->pollEvent(event))
-    {
+    while (_window->pollEvent(event)) {
         if (event.type == sf::Event::Closed)
             _window->close();
     }
 }
 
-void Application::setupScene()
-{
+void Application::setupScene() {
     _scene = std::make_unique<Scene>();
 
     auto grid = std::make_shared<RectGridNode>(sf::Vector2f(640, 640), sf::Vector2i(16, 16));
